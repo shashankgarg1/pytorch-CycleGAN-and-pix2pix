@@ -17,7 +17,7 @@ class Pix2PixModel(BaseModel):
         # parser.set_defaults(dataset_mode='aligned')
         if is_train:
             parser.set_defaults(pool_size=0, no_lsgan=True)
-            parser.add_argument('--lambda_L1', type=float, default=100.0, help='weight for L1 loss')
+            parser.add_argument('--lambda_L1', type=float, default=2.0, help='weight for L1 loss')
 
         return parser
 
@@ -34,6 +34,7 @@ class Pix2PixModel(BaseModel):
         else:  # during test time, only load Gs
             self.model_names = ['G']
         # load/define networks
+        print (opt.no_dropout)
         self.netG = networks.define_G(opt.input_nc, opt.output_nc, opt.ngf, opt.netG, opt.norm,
                                       not opt.no_dropout, opt.init_type, opt.init_gain, self.gpu_ids)
 
