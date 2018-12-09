@@ -19,7 +19,7 @@ class BaseOptions():
         parser.add_argument('--input_nc', type=int, default=3, help='# of input image channels')
         parser.add_argument('--output_nc', type=int, default=3, help='# of output image channels')
         parser.add_argument('--ngf', type=int, default=64, help='# of gen filters in first conv layer')
-        parser.add_argument('--ndf', type=int, default=64, help='# of discrim filters in first conv layer')
+        parser.add_argument('--ndf', type=int, default=32, help='# of discrim filters in first conv layer')
         parser.add_argument('--netD', type=str, default='n_layers', help='selects model to use for netD')
         parser.add_argument('--netG', type=str, default='resnet_3blocks', help='selects model to use for netG')
         parser.add_argument('--n_layers_D', type=int, default=5, help='only used if netD==n_layers')
