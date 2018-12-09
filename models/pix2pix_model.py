@@ -71,7 +71,7 @@ class Pix2PixModel(BaseModel):
         # stop backprop to the generator by detaching fake_B
         fake_AB = self.fake_AB_pool.query(torch.cat((self.real_A, self.fake_B), 1))
         #add below line
-        fake_AB = torch.zeros_like(fake_AB).normal(mean = 0.0, std = 0.2)
+        fake_AB = torch.zeros_like(fake_AB).normal_(mean = 0.0, std = 0.02)
         pred_fake = self.netD(fake_AB.detach())
         self.loss_D_fake = self.criterionGAN(pred_fake, False)
 
